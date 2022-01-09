@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <title>Story Editor</title>
+  <script>
+    function displayStory () {
+      let storyHTML = document.getElementById("story_editor").value;
+      document.getElementById("story_display").innerHTML = storyHTML;
+    }
+
+    function saveStory () {
+      let storyName = document.getElementById("name_input").value;
+      let storyHTML = document.getElementById("story_editor").value;
+      localStorage.setItem(storyName, storyHTML);
+    }
+
+    function loadStory() {
+      let storyName = document.getElementById("name_input").value;
+      let storyHTML = localStorage.getItem(storyName);
+      document.getElementById("story_editor").value = storyHTML;
+    }
+
+  </script>
+
+  <style>
+    label, input, textarea, p{
+      font-family: sans-serif;
+    }
+
+    textarea {
+      width: 800px;
+      height: 250px;
+      background-color: beige;
+    }
+
+    .map {
+      font-size: .8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="map"><a href="../../index.html">Home</a> > <a href="../index.html">Week 1</a></p>
+  <h1>The Amazing Story Editor</h1>
+	<label>Story Name: <input id="name_input"></label>
+  <section>
+    <!-- Buttons go here-->
+    <button onclick="loadStory()">Find and Edit It</button> 
+    <button onclick="saveStory()">Save It</button> 
+    <button onclick="displayStory()">Display It</button>
+  </section>
+  <!-- Story goes here -->
+  <textarea id="story_editor" placeholder="Write your really amazing and creative story here."></textarea>
+  <section id="story_display"></section>
+</body>
+</html>
