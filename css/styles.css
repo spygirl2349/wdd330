@@ -17,7 +17,7 @@ header {
 }
 
 main {
-    margin: 40px 25px 40px 25px;
+    margin: 40px 25px 40px 15px;
 }
 
 h1 {
@@ -27,4 +27,34 @@ h1 {
 
 .map {
     font-size: 0.8rem;
+}
+
+.center {
+    text-align: center;
+    font-size: 1.8rem;
+    border-bottom: 1.7px solid black;
+}
+
+ul.chapters {
+    list-style: none;
+    display: flex;
+    padding-left: 0px;
+
+}
+
+ul.chapters li a {
+    padding-right: 1rem;
+}
+
+.code {
+    font-family: monospace;
+    font-size: .9rem;
+}
+
+span.code {
+    background-color: #2e2e2e;
+    color: white;
+    border-radius: 3px;
+    padding: 2px;
+    font-size: .8rem;
 }
