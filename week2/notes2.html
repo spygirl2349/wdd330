@@ -15,7 +15,7 @@
     <main>
         <p><a href="practice2.html">Practice</a></p>
         <ul class="chapters">
-            <li><a href="notesch1.html">Ch 1</a></li>
+            <li><a href="notesch1.html">Ch 1 (Bonus)</a></li>
             <li><a href="#ch2">Ch 2</a></li>
             <li><a href="#ch3">Ch 3</a></li>
             <li><a href="#ch4">Ch 4</a></li>
@@ -104,7 +104,7 @@
         </ul>
         <h4>Sets</h4>
         <ul>
-            <li>A set is a data structure that is like python's dictionary</li>
+            <li>A set is a data structure that is like python's dictionary... but not. The values cannot be duplicated</li>
             <ul>
                 <li><span class="code">Set { 1, 2, 3 }</span></li>
             </ul>
@@ -121,21 +121,105 @@
 
         </ul>
 
-        <h4>Converting Sets to Arrays</h4>
+        <h4>Converting Sets & Maps to Arrays</h4>
+        <ul>
+            <li>There are 2 ways to convert a Set to an Array</li>
+            <ol>
+                <li><span class="code">const shoppingArray = [...shoppingSet]</span></li>
+                <li><span class="code">const shoppingArray = Array.from(shoppingSet);</span></li>
+            </ol>
+        </ul>
+
+        <h4>Weak Sets</h4>
+        <ul>
+            <li></li>
+        </ul>
 
         <h4>Maps</h4>
-
-        <h4>Converting Maps to Arrays</h4>
-
-        <h3 id="ch4">JavaScript: Novice to Ninja Ch 4: Functions</h3>
         <ul>
+            <li>Maps are like a Python dictionary</li>
+            <li>Create a map by: <span class="code">const romanNumerals = new Map();</span></li>
+            <li>Use the <span class="code">set()</span> method to add a key and vaule pair.</li>
+            <ul>
+                <li><span class="code">romanNumerals.set(1,'I'); << Map { 1 => 'I' }</span></li>
+            </ul>
+            <li>Use the <span class="code">get()</span> method to look up a value based on the key</li>
+            <ul>
+                <li><span class="code">romanNumerals.get(4); << 'IV'</span></li>
+            </ul>
+            <li>Use the <span class="code">has()</span> method to check if a particular key is in the map. It will return a boolean value.</li>
+            <li>Use the <span class="code">size</span> property to find the number of key and value pairs in the map.</li>
+            <li>The <span class="code">delete()</span> method can remove a key and vaule pair from a map.</li>
+            <li>Use the <span class="code">clear()</span>method to remove <em>all</em> key and vaule pairs.</li>
+        </ul>
+
+        <h4>Weak Maps</h4>
+        <!-- Stuff about weak maps goes here -->
+
+        <h4>Logic</h4>
+        <ul>
+            <li>Ternary Operator <span class="code">?</span></li>
+            <ul>
+                <li>Example: <span class="code">const n = 5; <br>
+                    n%2 === 0 ? console.log('n is an even number') : console.log('n is an odd number');
+                    <br><< 'n is an odd number'</span></li>
+                <li>Simplified Example: <span class="code">console.log(`n is a ${(n%2 === 0)? 'even' : 'odd'} number`);</span></li>
+            </ul>
+            <li><span class="code">do ... while</span> Loops</li>
+            <li>Looping Over Sets</li>
+            <ul>
+                <li>Note: weak sets are <strong>non-enumerable</strong></li>
+            </ul>
+            <li>Looping Over Maps</li>
+            <ul>
+                <li><span class="code">for(const key of romanNumerals.keys()) { <br>console.log(key); <br> }</span></li>
+                <li>Use the <span class="code">vaules()</span> method to iterate over the values</li>
+                <li>Use the <span class="code">entries()</span> method to acccess both the key and the value.</li>
+                <li>Note: weak maps are <strong>non-enumerable</strong> so you can't loop over them using any of the methods above</li>
+            </ul>
 
         </ul>
+
+        <h3 id="ch4">JavaScript: Novice to Ninja Ch 4: Functions</h3>
+        <h4>Ways to create a function</h4>
+        <ul>
+            <li>Function Declarations</li>
+            <ul>
+                <li><span class="code">function hello(){ console.log('Hello World!'); }</span></li>
+            </ul>
+            <li>Function Expressions</li>
+            <ul>
+                <li><span class="code">const hello = function(){ console.log('Hello World!'); }</span></li>
+                <li><span class="code">const goodbye = function bye(){
+                    console.log('Goodbye World!');};</span></li>
+            </ul>
+            <li>Function Constructors</li>
+            <ul>
+                <li><span class="code">const hi = new Function('console.log("Hi World!");');</span></li>
+            </ul>
+            <li>Arrow Functions</li>
+            <ul>
+                <li><span class="code">const square = x => x*x;</span></li>
+            </ul>
+        </ul>
+        <h4>Arguments</h4>
+        <ul>
+            <li>Every variable has a special variable called <span class="code">arguments</span>. It contains every argument passed to the function when it is invoked.</li>
+            <ul>
+                <li>Use the <span class="code">rest</span> operator to create an array of arguments that are available inside the body of the function.</li>
+            </ul>
+            <li>The <span class="code">mean()</span>function with a rest parameter</li>
+        </ul>
+
+        <h4>Function Hoisting</h4>
+
+        <h4>Variable Hoisting</h4>
+
         <h4>Callbacks</h4>
 
 
         <ul class="chapters">
-            <li><a href="notesch1.html">Ch 1</a></li>
+            <li><a href="notesch1.html">Ch 1 (Bonus)</a></li>
             <li><a href="#ch2">Ch 2</a></li>
             <li><a href="#ch3">Ch 3</a></li>
             <li><a href="#ch4">Ch 4</a></li>

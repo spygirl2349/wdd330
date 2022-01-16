@@ -18,6 +18,7 @@
     </main>
 </body>
 <script>   
+    /* QUIZ NINJA GAME */
     // const question = "What is Superman's real name?";
     // const answer = prompt(question);
 
@@ -26,8 +27,26 @@
     // } else {
     //     alert(`No. His name is not ${answer}`)
     // }
+    const quiz = [
+        ["What is Superman's real name?","Clark Kent"],
+        ["What is Wonder Woman's real name?","Diana Prince"],
+        ["What is Batman's real name?","Bruce Wayne"]
+    ];
 
-    const heroes = [];
+    let score = 0
+    
+    for(const [question,answer] of quiz){
+        const response = prompt(question);
+        if(response === answer){
+            alert('Correct!');
+            score++;
+        } else {
+            alert(`Wrong! The correct answer was ${answer}`);
+        }
+    }
+    alert(`Game Over, you scored ${score} point${score !== 1 ? 's' : ''}`);
+
+    /*const heroes = [];
     heroes[0]= 'Superman';
     heroes[1] = 'Flash';
     heroes [3] = 'Aquaman';
@@ -38,7 +57,7 @@
     console.log(heroes);
 
     heroes[6] = 'Batman'
-    console.log(heroes[heroes.length - 1]); // 'Batman'
+    console.log(heroes[heroes.length - 1]); // 'Batman'*/
 
 
 </script>
