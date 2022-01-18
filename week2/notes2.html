@@ -19,6 +19,7 @@
             <li><a href="#ch2">Ch 2</a></li>
             <li><a href="#ch3">Ch 3</a></li>
             <li><a href="#ch4">Ch 4</a></li>
+            <li><a href="#todo">TO DO</a></li>
         </ul>
         <h2 class="center">Notes</h2>   
         <h3 id="ch2">JavaScript: Novice to Ninja Ch 2: Programming Basics</h3>
@@ -212,10 +213,37 @@
         </ul>
 
         <h4>Function Hoisting</h4>
+        <ul>
+            <li>Function Hoisting means moving function and variable declarations to the top of the current scope, regardless of where they are defined</li>
+            <li>This means you can place all functions at the bottom and then call it at the beginning</li>
+        </ul>
 
         <h4>Variable Hoisting</h4>
+        <ul>
+            <li>You have to use <span class="code">var</span> to hoist a variable</li>
+            <li>A function can be hoisted by using <span class="code">var</span> to create a function declaration.</li>
+            <ul>
+                <li><span class="code">var helloExpression = function () {console.log('hello')}</span></li>
+            </ul>
+        </ul>
 
         <h4>Callbacks</h4>
+        <ul>
+            <li>Functions can be given as a parameter to another function</li>
+            <li>a function that is passed as an argumentto another is know as a <em>callback</em></li>
+            <li>Example:</li>
+            <ul>
+                <li><span class="code">function my_function() {console.log("It's me.")}</span></li>
+                <li><span class="code">function hello(my_function) {console.log("Hello")}</span></li>
+                <li>It appears as "Hello" "It's me."</li>
+            </ul>
+            <li>A callback can be used with <span class="code">sort(), forEach(), map(), reduce()</span> and <span class="code">filter()</span> methods as well.</li>
+            <li>Chaining Iterators Together - a process called chaining methods together.</li>
+        </ul>
+        <h4 id="todo">TO DO:</h4>
+        <ul>
+            <li>Look up a video on sort(), map(), reduce(), and filter()</li>
+        </ul>
 
 
         <ul class="chapters">
@@ -223,6 +251,7 @@
             <li><a href="#ch2">Ch 2</a></li>
             <li><a href="#ch3">Ch 3</a></li>
             <li><a href="#ch4">Ch 4</a></li>
+            <li><a href="#todo">TO DO</a></li>
         </ul>
     </main>
 </body>
@@ -261,6 +290,16 @@
     //BOOLEAN
     !true; // returns false
 
+    function function_1 () {
+        console.log("It's me.")
+    }
+
+    function function_2 (callback) {
+        console.log("Hello.")
+        callback()
+    }
+    
+    function_2 (function_1);
 
 </script>
 </html>
