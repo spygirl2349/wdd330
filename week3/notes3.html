@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 Notes</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <p class="map">Back to <a href="../index.html">Home</a></p>
+    <header>
+        <h1>Week 3</h1>
+    </header>
+    <main>
+        <p><a href="practice3.html">Practice</a></p>
+        <ul class="chapters">
+            <li><a href="#this">Object Methods: this</a></li>
+            <li><a href="#ch5">Ch 5</a></li>
+            <li><a href="#ch6">Ch 6</a></li>
+            <li><a href="#ch7">Ch 7</a></li>
+        </ul>
+        <h2 class="center">Notes</h2>
+        <h3 id="this">Object Methods: this</h3>
+        <ul>
+            <li>Assign objects a method by doing: </li>
+            <ul>
+                <li><span class="code">myObj.sayHi = function() { alert("Hello!"); };</span></li>
+                <li><span class="code">myObj.sayHi(); // Hello!</span></li>
+            </ul>
+            <li>Method shorthand:</li>
+            <ul>
+                <li><span class="code">user = { sayHi() { alert("Hello");} };</span></li>
+            </ul>
+            <li>"this" in methods is similar to "self" in python objects</li>
+            <ul>
+                <li>Ex: <span class="code">let user={ name: "John", sayHi(){alert(this.name); } };</span></li>
+                <li><span class="code">user.sayHi(); // John</span></li>
+            </ul>
+            <li>In JS, <span class="code">this</span> can be used in any function, even if it's not a method of an object</li>
+            <li>A function can be copied between objects</li>
+            <li>Arrow functions are special: they have no <span class="code">this</span> instead it's taken from outside</li>
+        </ul>
+        <h3 id="ch5">JavaScript: Novice to Ninja Ch 5: Objects</h3>
+        <ul>
+            <li>An object is like a database of values</li>
+            <li>JS objects are similar to a hash or associative array in other programming languages</li>
+            <li>JS Objects are like dictionaries that can contain variables, lists, and functions</li>
+            <li>Create an Object:</li>
+            <ul>
+                <li><span class="code">const spiderman = {};</span></li>
+                <li><span class="code">const spiderman = new Object();</span></li>
+            </ul>
+            <li>Access Properties in Objects by using dot notation or bracket notation</li>
+            <ul>
+                <li>Pro of bracket notation: <span class="code">superman["real" + " " + "name"] // Clark Kent</span></li>
+            </ul>
+            <li>Use <span class="code">Symbol()</span> to add unique property keys to an object</li>
+            <li>Use the<span class="code">in</span> operator to check if any object has a particular property</li>
+            <li>Alternatively, use the <span class="code">hasOwnProperty()</span> method</li>
+            <li>We can loop through all the object's properties/methods by using the <span class="code">for in</span> loop</li>
+            <li>Use <span class="code">Object.keys()</span> to return an array of all the keys in an object</li>
+            <li>Use <span class="code">Object.values()</span> to return an array of all the values in an object</li>
+            <li>Use <span class="code">Object.entries()</span> to return an array of all the keys-value pairs in an object</li>
+            <li>Adding properties example:</li>
+            <ul>
+                <li><span class="code">superman.city = 'Metropolis';</span></li>
+            </ul>
+            <li>Removing properties: <span class="code">delete superman.fly</span></li>
+            <li><strong>Nesting Objects:</strong></li>
+            <ul>
+                <li><span class="code">jla.wonderWoman.realName // "Diana Prince"</span></li>
+                <li><span class="code">jla.aquaman['realName'] // "Arthur Curry"</span></li>
+            </ul>
+        </ul>
+        <h4>JSON</h4>
+        <ul>
+            <li>JSON (JavaScript Object Notation) was invented by Douglas Crockford in 2001</li>
+            <li>JSON is a string representation of the object literal notation, but there are some differences</li>
+            <ol>
+                <li>Property values must be double-quoted</li>
+                <li>permitted values are double quoted strings, numbers, true, false, null, arrays, and objects</li>
+                <li>Functions are not permitted values</li>
+            </ol>
+            <li>The <span class="code">parse()</span> method takes a string of data in JSON format and returns a JS object</li>
+            <li>The <span class="code">stringify()</span> method does the opposite, taking a JS object & returning a string of JSON data</li>
+
+        </ul>
+
+        <h4>The <span class="code">Math</span> Object</h4>
+        <ul>
+            <li>A built-in object that has several properties representing mathematical constants, it also has methods that perform mathematical operations</li>
+            <li>Examples of math constants:</li>
+            <ul>
+                <li><span class="code">Math.PI // 3.141592653589793</span></li>
+                <li><span class="code">Math.E // 2.718281828459045</span></li>
+            </ul>
+            <li>The <span class="code">Math.abs()</span> method returns the absolute value of a number</li>
+            <li>The <span class="code">Math.ceil()</span> method will round a number up to the next integer</li>
+            <li>The <span class="code">Math.floor()</span> method will round a number down to the next integer</li>
+            <li>The <span class="code">Math.pow()</span> method: <span class="code">Math.pow(3, 2); // 3 squared = 9</span></li>
+            <li>It also does trigonometry: <span class="code">Math.sin() Math.cos()</span></li>
+            <li>The <span class="code">Math.random()</span> method is used to create random numbers</li>
+            <ul>
+                <li>To generate a random integer btw 0 & 6:</li>
+                <li><span class="code">Math.floor(6 * Math.random())</span></li>
+            </ul>
+        </ul>
+
+        <h4>The <span class="code">Date</span> Object</h4>
+        <ul>
+            <li>Contains information about dates and times</li>
+            <li>The parameters that can be provided are:</li>
+            <ul>
+                <li><span class="code">new Date(year,month,day,hour,minutes,seconds,milliseconds)</span></li>
+            </ul>
+            <li>Timezones can be tricky. Use UTC</li>
+            <li>Getter Methods</li>
+            <ul>
+                <li>Examples: <span class="code">getTime() getTImezoneOffset() getYear()</span></li>
+            </ul>
+            <li>Setter Methods</li>
+            <ul>
+                <li>Examples: <span class="code">setDate() setMonth() setFullYear()</span></li>
+            </ul>
+        </ul>
+
+        <h4>The <span class="code">RegExp</span> Object</h4>
+        <ul>
+            <li>A regular expression (RegExp) is a pattern that can be used to search strings for matches to the pattern</li>
+            <li>Creating regular expressions:</li>
+            <ul>
+                <li><span class="code">const pattern = /[a-zA-Z]+ing$/;</span></li>
+                <li><span class="code">const pattern = new RegExp('[a-zA-Z]+ing');</span></li>
+            </ul>
+            <li>RegExp Methods</li>
+            <ul>
+                <li>Use the <span class="code">test()</span> method to see if a string matches the RegExp pattern, it will return true or false</li>
+                <li>The <span class="code">exec()</span> method works the same way as test, but returns null if it doesn't match the pattern</li>
+            </ul>
+            <li>RegExp Properties</li>
+            <ul>
+                <li>The <span class="code">global</span> property makes the pattern return all matches</li>
+                <li>The <span class="code">ignoreCase</span> property makes the pattern case-insensitive.</li>
+                <li>The <span class="code">multiline</span> property makes the pattern multiline</li>
+            </ul>
+            <li>Look up for more details on how to use RegExp</li>
+        </ul>
+
+        <h3 id="ch6">JavaScript: Novice to Ninja Ch 6: Document Object Model</h3>
+        <ul>
+            <li>The Document Object Model (DOM) represents an HTML document as a network of connected nodes that form a tree-like structure</li>
+            <li>Legacy DOM Shortcut Methods</li>
+            <ul>
+                <li><span class="code">Document.body</span> returns the body element of a web page</li>
+                <li><span class="code">Document.images</span> returns a node list of all the images contained in the document</li>
+                <li><span class="code">Document.links</span> returns a node list of all the <span class="code"> &lt;a&gt;</span> and <span class="code">&lt;area&gt;</span> elements that have an <span class="code">href</span> attribute</li>
+                <li><span class="code">Document.anchors</span> returns a node list of all <span class="code"> &lt;a&gt;</span> elements that have a <span class="code">name</span> attribute</li>
+                <li><span class="code">Document.forms</span> returns a node list of all the forms in the document</li>
+            </ul>
+            <li>Create a Text Node:</li>
+            <ul>
+                <li><span class="code">const flashText = document.createTextNode('Flash');</span></li>
+            </ul>
+            <li>The <span class="code">insertBefore()</span> method will place a new element before another element in the markup</li>
+            <li>The <span class="code">replaceChild()</span> method can be used to replace one node with another</li>
+            <li>Update CSS using the <span class="code">style</span> property</li>
+            <ul>
+                <li><span class="code">superman.style.border = "red 2px solid";</span></li>
+                <li><span class="code">superman.style.backgroundColor = 'blue';</span></li>
+                <li><span class="code">superman.style.display = 'none';</span></li>
+            </ul>
+        </ul>
+
+
+        <h3 id="ch7">JavaScript: Novice to Ninja Ch 7: Events</h3>
+        <ul>
+            <li>Event Listeners</li>
+            <ul>
+                <li><span class="code">document.body.addEventListener("click", doSomething);</span></li>
+            </ul>
+            <li>Inline Event Handlers</li>
+            <ul>
+                <li><span class="code">&lt;p> onclick="console.log('You Clicked Me!')">Click Me&lt;/p></span></li>
+            </ul>
+        </ul>
+    </main>
+    <footer>
+        <ul class="chapters">
+            <li><a href="#this">Object Methods: this</a></li>
+            <li><a href="#ch5">Ch 5</a></li>
+            <li><a href="#ch6">Ch 6</a></li>
+            <li><a href="#ch7">Ch 7</a></li>
+        </ul>
+    </footer>
+</body>
+</html> 
