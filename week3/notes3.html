@@ -170,6 +170,8 @@
                 <li><span class="code">superman.style.backgroundColor = 'blue';</span></li>
                 <li><span class="code">superman.style.display = 'none';</span></li>
             </ul>
+            <li>Use the <span class="code">getComputedStyle()</span> function to retrieve all the style information of an element that is given as a parameter</li>
+            <li>You can do: <span class="code">superman.style.boder('red 2px solid');</span> but it's better to add a class and style the class in a separate css file</li>
         </ul>
 
 
@@ -182,6 +184,27 @@
             <li>Inline Event Handlers</li>
             <ul>
                 <li><span class="code">&lt;p> onclick="console.log('You Clicked Me!')">Click Me&lt;/p></span></li>
+            </ul>
+            <li>The <span class="code">target</span> will show a message in the console telling us the node that was used</li>
+            <li>Use the <span class="code">mousedown</span> and <span class="code">mouseup</span> events to see when the click button is pushed down or up. It occurs</li>
+            <li>See practice for examples on click, double click, hover, and keyboard events</li>
+            <li>See more on other events such as: <span class="code">touchstart, touchend, touchmove, touchenter, touchleave, touchcancel</span></li>
+            <li>Use the <span class="code">removeEventListener()</span> method to remove an event listener</li>
+            <li><strong>Event Propagation: Bubbling vs Capturing</strong></li>
+            <ul>
+                <li>Bubbling is when the child element fires before the parent element </li>
+                <li>Capturing is when the <em>parent</em> element fires before the child element</li>
+                <li>Bubbling is the default for event listeners, to use capturing do:</li>
+                <ul>
+                    <li>Add the third parameter to the <span class="code">addEventListener()</span> method. It's a boolean value for whether or not to use capturing</li>
+                    <li><span class="code">ulElement.addEventListener('click', [function goes here] , true)</span></li>
+                </ul>
+                <li>Stop the bubbling phase by adding the <span class="code">event.stopPropagation()</span> method into the callback function</li>
+            </ul>
+            <li><strong>Event Delegation</strong></li>
+            <ul>
+                <li>Attach an event listener to a parent element to capture events that are triggered by its child elements</li>
+                <li>Use the <span class="code">target</span> property to identify the element that was clicked on</li>
             </ul>
         </ul>
     </main>
