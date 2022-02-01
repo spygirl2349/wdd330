@@ -37,6 +37,39 @@
             </ul>
         </ul>
         <h3 id="ch12">JavaScript: Novice to Ninja Ch 12: OOP</h3>
+        <div class="chunk"><p class="code">class Turtle {<br><br>
+            constructor(name) {<br>
+                this.name = name;<br>
+                this.weapon = 'hands';<br>
+            }<br><br>
+            sayHi() {<br>
+                return `Hi dude, my name is ${this.name}`;<br>
+            }<br><br>
+            attack(){<br>
+                return `Feel the power of my ${this.weapon}!`;<br>
+            }
+        }</p></div>
+        <ul>
+            <li>Use <span class="code">static</span> to create a static method, it is not available to instances of the class</li>
+            <li>Create a new instance of a class:</li>
+            <ul>
+                <li><span class="code">const leo = new Turtle('Leonardo');</span></li>
+            </ul>
+            <li>When using classes and prototypes to create instances, the following should be considered:</li>
+            <ul>
+                <li>Create a class declaration that deals with any initialization, shared properties and methods</li>
+                <li>Use the prototype to augment extra methods and properties (this includes all instances, even those that have already been created)</li>
+                <li>An instance can be augmented using assignment of properties or methods (invididual to that instance) to that object</li>
+                <li>Be careful when overwriting the prototype completely -- the constuctor class needs to be reset</li>
+            </ul>
+            <li>Example</li>
+            <ul class="code chunk">
+                <li><span class="code">const mike = new Turtle('Michelangelo');</span></li>
+                <li><span class="code">mike.eat() // 'Mmm, this Pizza tastes great!'</span></li>
+                <li><span class="code">mike.weapon = 'Nunchakus';</span></li>
+                <li><span class="code">mike.attack(); // 'Feel the power of my Nunchakus!'</span></li>
+            </ul>
+        </ul>
         <h3 id="ch15">JavaScript: Novice to Ninja Ch 15: Modern JavaScript</h3>
       
     </main>

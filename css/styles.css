@@ -49,12 +49,30 @@ ul.chapters li a {
 .code {
     font-family: monospace;
     font-size: .9rem;
-}
-
-span.code {
     background-color: #2e2e2e;
     color: white;
     border-radius: 3px;
     padding: 2px;
     font-size: .8rem;
+
+}
+
+.chunk {
+    margin-left: 2rem;
+    padding-right: none;
+}
+
+/* Medium screen */
+@media (min-width: 37.5em) {
+    .chunk {
+        margin-right: 5rem;
+    }
+}
+
+/* large screen */
+@media only screen and (min-width: 64rem) {
+    .chunk {
+        margin-right: 22rem;
+        justify-self: center;
+    }
 }
