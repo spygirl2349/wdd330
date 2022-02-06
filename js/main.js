@@ -14,6 +14,10 @@ const links = [
     {
         label: "Week 4 Notes",
         url: "week4/notes4.html"
+    },
+    {
+        label: "Week 5 Notes",
+        url: "week5/notes5.html"
     }
 ]
 
@@ -31,5 +35,74 @@ for (let i=0; i < links.length; i++) {
 
     li.append(a);
     ol.append(li);
+   
+};
+
+//Chapters List
+const chapters = [
+    {
+        label: "Doing Stuff with Web Things",
+        url: "week1/index.html"
+    },
+    {
+        label: "Javascript: Novice to Ninja Chapter 1",
+        url: "week2/notesch1.html"
+    },
+    {
+        label: "Chapter 2: Programming Basics",
+        url: "week2/notes2.html#ch2"
+    },
+    {
+        label: "Chapter 3: Arrays, Logic and Loops",
+        url: "week2/notes2.html#ch3"
+    },
+    {
+        label: "Chapter 4: Functions",
+        url: "week2/notes2.html#ch4"
+    },
+    {
+        label: "Chapter 5: Objects",
+        url: "week3/notes3.html#ch5"
+    },
+    {
+        label: "Chapter 6: Document Object Model",
+        url: "week3/notes3.html#ch6"
+    },
+    {
+        label: "Chapter 7: Events",
+        url: "week3/notes3.html#ch7"
+    },
+    {
+        label: "Chapter 8: Forms",
+        url: "week4/notes4.html#ch8"
+    },
+    {
+        label: "Chapter 10: Testing and Debugging",
+        url: "week5/notes5.html#ch7"
+    },
+    {
+        label: "Chapter 12: OOP",
+        url: "week4/notes4.html#ch12"
+    },
+    {
+        label: "Chapter 15: Modern Javascript",
+        url: "week4/notes4.html#ch15"
+    }
+]
+
+let ul = document.getElementById("chapter-links");
+
+
+
+for (let i=0; i < chapters.length; i++) {
+    console.log(chapters)
+    let li = document.createElement("li");
+    let a = document.createElement("a");
+
+    a.textContent = chapters[i].label;
+    a.setAttribute ("href", chapters[i].url)
+
+    li.append(a);
+    ul.append(li);
    
 };
