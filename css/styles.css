@@ -67,6 +67,12 @@ ul.chapters li a {
     .chunk {
         margin-right: 5rem;
     }
+
+    main.home {
+        display: flex;
+
+    }
+
 }
 
 /* large screen */

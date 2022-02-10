@@ -83,6 +83,61 @@
             
         </ul>
         <h3 id="ch15">JavaScript: Novice to Ninja Ch 15: Modern JavaScript</h3>
+        <h4>Videos</h4>
+        <ul>
+            <li><a href="https://youtu.be/cRHQNNcYf6s" target="_blank">Javascript ES6 Modules</a></li>
+            <li><a href="https://youtu.be/T2mFyPxL-fU" target="_blank">What is jQuery?</a> -Khan Academy</li>
+            <li><a href="https://youtu.be/JjIvF0yikGU" target="_blank">Learn jQuery in 6 minutes</a></li>
+        </ul>
+        <h4>Libraries</h4>
+        <ul>
+            <li>Libraries can help you reduce the code you write. </li>
+            <li>JQuery, DOM Manipulation, Underscore, and Lodash are all examples of libaries</li>
+            <li>Pros of libraries:</li>
+            <ul>
+                <li> Popular libraries can make your code as bullet-proof as possible in many browsers</li>
+            </ul>
+            <li>Cons:</li>
+            <ul>
+                <li> The code for the library must be included in your code (can cause performance issues)</li>
+                <li>They can fail to implement the functionality in the way you intended</li>
+            </ul>
+            <li>Browsers will cache libraries after the first download</li>
+        </ul>
+        <h4>Modular JavaScript</h4>
+        <ul>
+            <li>A module is way to reuse and organize your code which improves code mantainablility</li>
+            <li>Modules allow a public API to be exposed, but keep the implementation hidden away inside the module</li>
+            <li>Keeping code modular makes it more <em>loosley coupled</em> and interchangable</li>
+            <li>A few important points about modules: </li>
+            <ul>
+                <li>All code in modules is always in strict mode and there's no way to opt out of this</li>
+                <li>a module has it's own global scope, so any variables in a top-level of module can only be accessed within that module</li>
+                <li>The value of <span class="code">this</span> in the top level of a module is <span class="code">undefined</span>, rather than the global object</li>
+                <li>You can't use HTML-style comments in modules</li>
+            </ul>
+            <li>How to Export/Import Modules:</li>
+            <ul>
+                <li>Export a very simple Pi Module:</li>
+                <ul>
+                    <li><span class="code">export const PI = 3.1415926;</span></li>
+                </ul>
+                <li>Import your Pi module into you main JS file:</li>
+                <ul>
+                    <li><span class="code">import { PI } from './pi.js';</span></li>
+                </ul>
+                <li>Use the <span class="code">*</span> symbol to import everything from the specified module file</li>
+                <li><strong>Default exports</strong> can be imported with having to be expicitly named</li>
+                <ul>
+                    <li><span class="code">export default myClass</span></li>
+                </ul>
+            </ul>
+        </ul>
+        <h4>MVC frameworks</h4>
+        <h4>Package managers</h4>
+        <h4>Optimizing your code with minification</h4>
+        <h4>Build processes using your Webpack</h4>
+        
       
     </main>
     <footer>

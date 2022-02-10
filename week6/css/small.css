@@ -1,0 +1,42 @@
+p,
+input,
+button {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#tasks p {
+    margin: 0;
+}
+
+#tasks div {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 35rem;
+    margin: 5px;
+}
+
+#tasks div button {
+    background-color: skyblue;
+    border: none;
+    padding: .75rem;
+}
+
+.add-todo-div button {
+    background-color: skyblue;
+    border: none;
+    padding: .75rem;
+}
+
+.add-todo-div input {
+    padding: .65rem;
+    font-size: 1rem;
+    width: 70%;
+    max-width: 30rem;
+}
+
+.completed {
+    background-color: green;
+}
