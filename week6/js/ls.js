@@ -1,15 +1,28 @@
 const TODO_LIST = "todolist";
 
 function getTodoList() {
-    //stuff 
+    localStorage.getItem(TODO_LIST);
 }
 
 function saveTodo (todo) {
-    //stuff
+    let key = todo.id
+    let todo_list = localStorage.getItem(TODO_LIST);
+
+    //if todo_list doesn't exist
+    if (todo_list == null) {
+        let todo_list = {key: todo}
+        localStorage.setItem(TODO_LIST, todo_list)
+    } else {
+        todo_list = Object.assign(todo_list, todo) 
+        localStorage.setItem(TODO_LIST, todo_list)
+    }
 }
 
 function deleteTodo(id) {
-    //stuff
+    console.log("Hello from ls.deleteTodo")
+
+    let task = TODO_LIST[todo][id]
+    localStorage.removeItem(task);
 }
 
 export default {

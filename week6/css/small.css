@@ -18,6 +18,74 @@ button {
     margin: 5px;
 }
 
+/* the container (label element) */
+#tasks .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 38px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+/* hide the default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 39px;
+    width: 39px;
+    background-color: #eee;
+}
+
+/* on hover, add gray background */
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* when checkbox is checked */
+.container input:checked~.checkmark {
+    background-color: skyblue;
+}
+
+/*create the checkmark indicator */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/*show the checkmark when checked*/
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* style the checkmark/indicator */
+.container .checkmark:after {
+    left: 15px;
+    top: 13px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
 #tasks div button {
     background-color: skyblue;
     border: none;
