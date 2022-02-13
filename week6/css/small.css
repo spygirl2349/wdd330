@@ -82,12 +82,11 @@ header {
 .container input:checked~.checkmark,
 .checked {
     background-color: skyblue;
+    background-image: url(../images/check.png);
 }
 
-.container span.checked {
+.container input.checked {
     background-image: url(../images/check.png);
-    width: 39px;
-    height: 39px;
 }
 
 .add-todo-div {

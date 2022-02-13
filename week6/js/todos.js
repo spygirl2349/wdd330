@@ -42,10 +42,10 @@ function createTodoItem(todo) {
     cInput.setAttribute("type", "checkbox");
     cInput.onclick = toggleComplete;
     span.setAttribute("class", "checkmark");
-    if (todo.completed) {
-        span.setAttribute("class", "checkmark checked");
+    if (todo.completed == true) {
+        cInput.setAttribute("class", "checked");
     } else {
-        span.setAttribute("class", "checkmark");
+        cInput.setAttribute("class", "");
     }
     btn.textContent = "X";
     btn.onclick = deleteTodo;
@@ -75,24 +75,12 @@ function addToList(todoDiv) {
 function loadTodos () {
     let todo_list = ls.getTodoList();
 
-    console.log(`todolist inside loadTodos: ${JSON.stringify(todo_list)}`);
-
     todo_list.forEach(todo => {
         createTodoItem(todo);
     })
-    
-    // if (todo_list != []) {
-    //     for (let i = 0; i < todo_list.length; i++) {
-    //         createTodoItem(i);
-    //     }
-    // }
 }
 
 function deleteTodo(event) {
-    // let task = document.getElementById(event.srcElement.parentNode);
-    // ls.deleteTodo(task)
-    // task.parentNode.removeChild(task);
-
     const btn = event.currentTarget;
     let del = btn.parentNode.getAttribute('id');
     ls.deleteTodo(del);
@@ -106,16 +94,15 @@ function toggleComplete(e) {
     let id = box.parentNode.parentNode.getAttribute('id');
     let comp = box.checked;
 
-    let getSpan = box.nextElementSibling
-    let getSpanClass = getSpan.getAttribute("class");
+    let getBoxClass = box.getAttribute("class");
     //let nextSibling = current.nextElementSibling;
 
 
     //getting the checkmark to show
-    if (getSpanClass == "checkmark") {
-        getSpan.setAttribute("class", "checkmark checked");
+    if (getBoxClass == "") {
+        box.setAttribute("class", "checked");
     } else {
-        getSpan.setAttribute("class", "checkmark");
+        box.setAttribute("class", "");
     }
 
     ls.completedTodo(id, comp);

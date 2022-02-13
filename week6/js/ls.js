@@ -37,7 +37,6 @@ function completedTodo(cId, comp){
     for (let i=0; i < todo_list.length; i++) {
         if (todo_list[i].id == cId) {
             todo_list[i].completed = comp;
-            console.log(todo_list[i]);
             break;
         }
     }
