@@ -79,33 +79,15 @@ header {
 }
 
 /* when checkbox is checked */
-.container input:checked~.checkmark {
+.container input:checked~.checkmark,
+.checked {
     background-color: skyblue;
 }
 
-/*create the checkmark indicator */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/*show the checkmark when checked*/
-.container input:checked~.checkmark:after {
-    display: block;
-}
-
-/* style the checkmark/indicator */
-.container .checkmark:after {
-    left: 15px;
-    top: 13px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+.container span.checked {
+    background-image: url(../images/check.png);
+    width: 39px;
+    height: 39px;
 }
 
 .add-todo-div {
@@ -158,6 +140,3 @@ header {
     }
 
 }
-
-/* large screen */
-@media only screen and (min-width: 64rem) {}

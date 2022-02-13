@@ -19,7 +19,7 @@ input.addEventListener('keypress', e => {
 loadTodos();
 
 function addNewTodo(e) {
-    const todo = {id: Date.now(), content: input.value, completed: false };
+    let todo = {id: Date.now(), content: input.value, completed: false };
 
     input.value = "" ;
 
@@ -40,9 +40,13 @@ function createTodoItem(todo) {
     div.id = todo.id;
     label.setAttribute("class", "container");
     cInput.setAttribute("type", "checkbox");
-    cInput.setAttribute("value", "incomplete");
     cInput.onclick = toggleComplete;
     span.setAttribute("class", "checkmark");
+    if (todo.completed) {
+        span.setAttribute("class", "checkmark checked");
+    } else {
+        span.setAttribute("class", "checkmark");
+    }
     btn.textContent = "X";
     btn.onclick = deleteTodo;
 
@@ -90,28 +94,31 @@ function deleteTodo(event) {
     // task.parentNode.removeChild(task);
 
     const btn = event.currentTarget;
-    let del = btn.parentNode.getAttribute('data-id');
+    let del = btn.parentNode.getAttribute('id');
     ls.deleteTodo(del);
     document.getElementById('tasks'). innerHTML = '';
     loadTodos();
 
 }
 
-function toggleComplete(e) {
-    let todo_list = ls.getTodoList();
+function toggleComplete(e) {   
+    let box = e.currentTarget;
+    let id = box.parentNode.parentNode.getAttribute('id');
+    let comp = box.checked;
 
-    console.log(`todolist inside toggleComplete: ${todo_list}`);
-
-    // if (input.value == "incomplete") {
-    //     input.value = "complete";
-    // }
-
-    // todolist[e].completed = true;
-    // todo.completed = true;
-    // let id = todo.id;
-    // document.getElementById(id).setAttribute("class", "");
+    let getSpan = box.nextElementSibling
+    let getSpanClass = getSpan.getAttribute("class");
+    //let nextSibling = current.nextElementSibling;
 
 
+    //getting the checkmark to show
+    if (getSpanClass == "checkmark") {
+        getSpan.setAttribute("class", "checkmark checked");
+    } else {
+        getSpan.setAttribute("class", "checkmark");
+    }
+
+    ls.completedTodo(id, comp);
 }
 
 function applyFilter(e){
