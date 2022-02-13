@@ -1,8 +1,12 @@
 import util from './utilities.js';
 import ls from './ls.js';
 
-// When add button is clicked...
+// When add event listeners
 document.getElementById('addBtn').onclick = addNewTodo;
+document.getElementById('activeFilter').onclick = applyFilter;
+document.getElementById('allFilter').onclick = applyFilter;
+document.getElementById('completedFilter').onclick = applyFilter;
+
 
 const input = document.getElementById('todoInput');
 
@@ -22,7 +26,7 @@ function addNewTodo(e) {
     createTodoItem(todo);
 
     //save to ls
-    ls.saveTodo(todo)
+    ls.saveTodo(todo);
 }
 
 function createTodoItem(todo) {
@@ -33,43 +37,51 @@ function createTodoItem(todo) {
     let p = document.createElement('p');
     let btn = document.createElement('button');
 
-    div.id = todo.id
-    label.setAttribute("class", "container")
-    cInput.setAttribute("type", "checkbox")
-    cInput.setAttribute("value", "completed")
-    span.setAttribute("class", "checkmark")
-    btn.textContent = "X"
-    btn.onclick = deleteTodo()
+    div.id = todo.id;
+    label.setAttribute("class", "container");
+    cInput.setAttribute("type", "checkbox");
+    cInput.setAttribute("value", "incomplete");
+    cInput.onclick = toggleComplete;
+    span.setAttribute("class", "checkmark");
+    btn.textContent = "X";
+    btn.onclick = deleteTodo;
 
-    p.textContent = todo.content
+    p.textContent = todo.content;
 
 
     //append input and span to label
-    label.append(cInput)
-    label.append(span)
+    label.append(cInput);
+    label.append(span);
     //add everything to div
     div.append(label);
     div.append(p);
     div.append(btn);
 
-    addToList(div)
-    
+    //add div(task) to the div container (tasks)
+    let tasks = document.getElementById('tasks');
+    tasks.append(div);
 }
 
 function addToList(todoDiv) { 
-    //add div(task) to the div container (tasks)
-    let tasks = document.getElementById('tasks');
-    tasks.append(todoDiv);
+    //WHAT DO YOU WANT HERE????
+    //load todos calls this function... but why?
+    //STICKS IT INTO LIST
 }
 
 function loadTodos () {
-    let todo_list = ls.getTodoList()
+    let todo_list = ls.getTodoList();
 
-    if (todo_list != null) {
-        todo_list.foreach(todo => {
-            createTodoItem(todo);
-        })
-    }
+    console.log(`todolist inside loadTodos: ${JSON.stringify(todo_list)}`);
+
+    todo_list.forEach(todo => {
+        createTodoItem(todo);
+    })
+    
+    // if (todo_list != []) {
+    //     for (let i = 0; i < todo_list.length; i++) {
+    //         createTodoItem(i);
+    //     }
+    // }
 }
 
 function deleteTodo(event) {
@@ -77,18 +89,48 @@ function deleteTodo(event) {
     // ls.deleteTodo(task)
     // task.parentNode.removeChild(task);
 
+    const btn = event.currentTarget;
+    let del = btn.parentNode.getAttribute('data-id');
+    ls.deleteTodo(del);
+    document.getElementById('tasks'). innerHTML = '';
+    loadTodos();
+
 }
 
 function toggleComplete(e) {
+    let todo_list = ls.getTodoList();
+
+    console.log(`todolist inside toggleComplete: ${todo_list}`);
+
+    // if (input.value == "incomplete") {
+    //     input.value = "complete";
+    // }
+
+    // todolist[e].completed = true;
+    // todo.completed = true;
+    // let id = todo.id;
+    // document.getElementById(id).setAttribute("class", "");
+
 
 }
 
 function applyFilter(e){
     //Clear the list
-
+    document.getElementById('tasks'). innerHTML = '';
     //Declare variables
-
+    let filteredTodos = [];
+    const allTodos = ls.getTodoList();
     //Check which filter to apply
+    if (e.currentTarget.id == 'activeFilter') {
+        filteredTodos = util.activeFilter(allTodos);
+    } else if (e.currentTarget.id == 'allFilter') {
+        filteredTodos = allTodos;
+    } else if (e.currentTarget.id == 'completedFilter') {
+        filteredTodos = util.completedFilter(allTodos);
+    }
 
     //Draw the list
+    filteredTodos.forEach(todo => {
+        createTodoItem(todo);
+    })
 }

@@ -1,28 +1,34 @@
 const TODO_LIST = "todolist";
 
 function getTodoList() {
-    localStorage.getItem(TODO_LIST);
-}
-
-function saveTodo (todo) {
-    let key = todo.id
+    //get Todo list from local storage (ls)
     let todo_list = localStorage.getItem(TODO_LIST);
-
-    //if todo_list doesn't exist
+    console.log(`todolist from getTOdolist ${JSON.stringify(todo_list)}`)
     if (todo_list == null) {
-        let todo_list = {key: todo}
-        localStorage.setItem(TODO_LIST, todo_list)
+        return new Array();
     } else {
-        todo_list = Object.assign(todo_list, todo) 
-        localStorage.setItem(TODO_LIST, todo_list)
+        return todo_list;
     }
 }
 
-function deleteTodo(id) {
-    console.log("Hello from ls.deleteTodo")
+function saveTodo (todo) {
+    //save todo item to the todolist in ls
+    let todo_list = getTodoList();
 
-    let task = TODO_LIST[todo][id]
-    localStorage.removeItem(task);
+    console.log(`todolist from saveTodo ${JSON.stringify(todo_list)}`)
+    console.log(`Todo list length: ${todo_list.length}`)
+
+    todo_list.push(todo);
+    localStorage.setItem(TODO_LIST, JSON.stringify(todo_list));
+    
+}
+
+function deleteTodo(id) {
+    // //remove todo item from ls
+    // console.log("Hello from ls.deleteTodo")
+    // //convert for array instead of dict
+    // let task = TODO_LIST[todo][id]
+    // localStorage.removeItem(task);
 }
 
 export default {

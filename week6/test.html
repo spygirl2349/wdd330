@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing LS</title>
+</head>
+<body>
+    <main>
+        <input type="submit" value="add a todo">
+    </main>
+    <script>
+        TODO_LIST = "todo_test"
+        function getTodoList() {
+            //get todolist
+            let todo_list = localStorage.getItem(TODO_LIST);
+            if (todo_list == null) {
+                return {innerTodo: []};
+            } else {
+                return todo_list;
+            }
+        }
+        function saveTodo (todo) {
+            //save todo item to the todolist in ls
+            let todo_list = getTodoList();
+
+            console.log(`todolist from saveTodo ${JSON.stringify(todo_list)}`)
+            console.log(`Todo list length: ${todo_list.length}`)
+            todo_list.innerTodo.push(todo);
+            localStorage.setItem(TODO_LIST, JSON.stringify(todo_list));
+            
+        }
+
+        function loadTodos () {
+            let todo_list = ls.getTodoList()
+
+            console.log(`todolist inside loadTodos: ${JSON.stringify(todo_list)}`)
+            
+            if (todo_list != []) {
+                for (let i = 0; i < todo_list.length; i++) {
+                    createTodoItem(i);
+                }
+            }
+        }
+
+        let random_list = [{"greeting": "hi"}, {"greeting": "hola"}, {"greeting": "Γιεα"}]
+
+        let choice = Math.floor(Math.random() * random_list.length)
+        saveTodo(random_list)
+    </script>
+</body>
+</html>
