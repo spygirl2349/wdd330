@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7 Notes</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <p class="map">Back to <a href="../index.html">Home</a></p>
+    <header>
+        <h1>Week 7</h1>
+    </header>
+    <main>
+        <p><a href="ajax-practice/" target="_blank">Ajax Practice</a></p>
+        <p><a href="todo-practice/" target="_blank">Todo Practice</a></p>
+        <ul class="chapters">
+            <li><a href="#ch11">Ch 11: Further Functions</a></li>
+            <li><a href="#ch13">Ch 13: AJAX</a></li>
+        </ul>
+        <h2 class="center">Notes</h2>
+        <h3 id="ch11">JavaScript: Novice to Ninja Ch 11: Further Functions</h3>
+        <h4>Videos</h4>
+        <ul>
+            <li><a href="https://youtu.be/_IGIQ10yX1o" target="_blank">Understanding Asynchronous Javascript</a></li>
+            <li><a href="https://youtube.com/playlist?list=PLTo9PCskHpbHIDnzl8tRYldSCSQaFgAHd" target="_blank">JavaScript Promises Playlist</a></li>
+        </ul>
+        <h4>Function Properites and Methods</h4>
+        <ul>
+            <li>The <span class="code">call()</span> method can be used to set the value of <span class="code">this</span> inside a function to an object that is provided as the first argument</li>
+            <li>The <span class="code">apply()</span> method works the same as the call method, except the arguments of the functions are provided as an array</li>
+        </ul>
+        <h4>Custom Properites</h4>
+        <ul>
+            <li>You can add properties to a function in the same way that you would to an object</li>
+            <li>A useful feature of Custom Properties is that is provides result caching (aka memoization)</li>
+            <ul>
+                <li>if a function takes time to computer a return value, it can save the result in a <span class="code">cache</span> property</li>
+            </ul>   
+        </ul>
+        <div class="chunk">
+            <p class="code">function square(x){ <br>
+                square.cache = square.cache || {}; <br>
+                if (!square.cache[x]) {<br>
+                    square.cache[x] = x*x;<br>
+                }<br>
+                return square.cache[x] <br>
+            }</p>
+            <p class="code">square(3);<br>
+                << 9 <br>
+                
+                square(-11);<br>
+                << 121 <br>
+                
+                square.cache; <br>
+                << {"3": 9, "-11": 121}</p>
+        </div>
+        <h4>Immediately Invoked Function Expressions (IIFE)</h4>
+        <ul>
+            <li>IIFE ('iffy') is an anonymous functions that is invoked as soon as it's defined</li>
+            <li>To acheive this, place parentheses at the end of the function definition:</li>
+            <div class="chunk"><p class="code">(function(){ <br>
+                console.log(`Hello World}`);<br>
+                })();</p></div>
+            <li>This can be useful to keep any variables wrapped up within the scope of the function</li>
+            <li>An IIFE can be used to set up any initialization code that won't be needed again</li>
+            <li>Use an IIFE to use strict mode without have strict mode used on the rest of your JS file. </li>
+            <li>Use IIFE's to enclose a block of code inside its own private scope so it doesn't interfere with the rest of your program</li>
+        </ul>
+        <h4>Self-defining functions</h4>
+        <div class="chunk"><p class="code">function party(){ <br>
+            console.log('Wow this is amazing!');<br>
+            party = function(){<br>
+                console.log('Been there, got the T-Shirt');<br>
+            }<br>
+        }</p></div>
+        <ul>
+            <li>The dynamic namture of JS means that a function can define itself and then redefine itself (see the code block above)</li>
+            <li>The <em>Lazy Definition Pattern</em> is often used when some initialization code is required the first time invoked, but can be redefinded to what you want it to be afterwards.</li>
+        </ul>
+        <h4>Recursive Functions</h4>
+        <h4>Callbacks</h4>
+        <h4>Promises</h4>
+        <h4>Async Functions</h4>
+        <h4>Functions that return functions</h4>
+        <h4>Closures</h4>
+        <h4>Introduction to Functional Programming</h4>
+        <ul>
+            <li>Rules of <strong>Pure Functions</strong>:</li>
+            <ol>
+                <li>The return value shouldn't rely on values from somewhere else in the program, it can only depend on the values provided as arguments</li>
+                <li>Don't change any values or data elsewhere in the program</li>
+                <li>Given the same arguments, it will always return the same result (Referential transparency)</li>
+            </ol>
+            <li>In order to follow the above rules, a pure function must have at least one argument and a return value</li>
+            <li>Pure functions are more flexible becasue they can be used as the building blocks for many different situations</li>
+        </ul>
+        <h4>Currying</h4>
+        <h3 id="ch13">JavaScript: Novice to Ninja Ch 13: AJAX</h3>
+        <h4>Clients and Servers</h4>
+        <h4>A Brief History of Ajax</h4>
+        <h4>Communicating with the server using the Fetch API</h4>
+        <h4>Receiving data with Ajax</h4>
+        <h4>Sending Data with Ajax</h4>
+        <h4>Form Data</h4>
+    </main>
+    <footer>
+        <ul class="chapters">
+            <li><a href="#ch11">Ch 11: Further Functions</a></li>
+            <li><a href="#ch13">Ch 13: AJAX</a></li>
+        </ul>
+    </footer>
+    <script>
+    function outer() {
+        const outside = 'Outside!';
+        function inner() {
+            const inside = 'Inside!';
+            console.log(outside);
+            console.log(inside);
+        }
+        console.log(outside);
+        inner();
+    }
+    </script>
+</body>
+</html> 

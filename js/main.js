@@ -22,6 +22,10 @@ const links = [
     {
         label: "Week 6 ToDo App",
         url: "week6/"
+    },
+    {
+        label: "Week 7 Notes",
+        url: "week7/notes7.html"
     }
 ]
 
@@ -82,11 +86,19 @@ const chapters = [
     },
     {
         label: "Chapter 10: Testing and Debugging",
-        url: "week5/notes5.html#ch7"
+        url: "week5/notes5.html"
+    },
+    {
+        label: "Chapter 11: Further Functions",
+        url: "week7/notes7.html#ch11"
     },
     {
         label: "Chapter 12: OOP",
         url: "week4/notes4.html#ch12"
+    },
+    {
+        label: "Chapter 13: AJAX",
+        url: "week7/notes7.html#ch13"
     },
     {
         label: "Chapter 15: Modern Javascript",
