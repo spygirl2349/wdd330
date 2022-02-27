@@ -26,6 +26,10 @@ const links = [
     {
         label: "Week 7 Notes",
         url: "week7/notes7.html"
+    },
+    {
+        label: "Week 8 Notes",
+        url: "week8/notes8.html"
     }
 ]
 
@@ -103,6 +107,14 @@ const chapters = [
     {
         label: "Chapter 15: Modern Javascript",
         url: "week4/notes4.html#ch15"
+    },
+    {
+        label: "HTML5 and CSS3 for the Real World, Ch8: Transforms and Tranisitions",
+        url: "week8/notes8.html#hch8"
+    },
+    {
+        label: "HTML5 and CSS3 for the Real World, Ch12: Canvas, SVG, Drag and Drop",
+        url: "week8/notes8.html#hch12"
     }
 ]
 

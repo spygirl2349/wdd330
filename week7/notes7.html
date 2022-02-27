@@ -112,16 +112,27 @@
         </ul>
     </footer>
     <script>
-    function outer() {
-        const outside = 'Outside!';
-        function inner() {
-            const inside = 'Inside!';
-            console.log(outside);
-            console.log(inside);
-        }
-        console.log(outside);
-        inner();
+    // function outer() {
+    //     const outside = 'Outside!';
+    //     function inner() {
+    //         const inside = 'Inside!';
+    //         console.log(outside);
+    //         console.log(inside);
+    //     }
+    //     console.log(outside);
+    //     inner();
+    // }
+    const url = "https://swapi.dev/api/people";
+
+    async function getRequest(url) {
+        const resp = await fetch(url);
+        const allResp = await resp.json();
+
+        console.log(allResp.results);
+
     }
+
+    getRequest(url)
     </script>
 </body>
 </html> 
