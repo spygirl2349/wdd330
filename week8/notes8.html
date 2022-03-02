@@ -25,6 +25,44 @@
             <li><a href="#" target="_blank"></a></li>
             
         </ul>
+        <h4>Transforms</h4>
+        <div class="chunk"><p class="code">.ad-ad2 h1:hover span { <br>
+            color: #484848;<br>
+            transform: rotate(10deg) translateX(40px) scale(1.5);<br>
+        }</p></div>
+        <ul>
+            <li>Translation Transforms are similar to <span class="code">position: relative;</span>(it allows you to move elements l, r, up & down</li>
+            <li>Scale is another type of transform</li>
+            <li>The <span class="code">rotate()</span> function rotates an element around the point of origin by a specified angle value</li>
+            <li>The <span class="code">skew(x,y)</span> function specifies a skew along the x and y axes.</li>
+            <li>change the origin by using the <span class="code">transform-origin</span> property</li>
+        </ul>
+        <h4>Tranisitions</h4>
+        <ul>
+            <li>200ms is considered optimum time for a transition</li>
+            <li>The <span class="code">tranisition-property</span> property lets you chose what property will be affected by the transition</li>
+            <li><span class="code">tranisition-timing-function</span> property lets you control the pace of the the transition in more granular detail</li>
+            <li>The <span class="code">transition-delay</span> property allows you to add a delay before the transition starts</li>
+            <li>The <span class="code">transition</span> property is shorthand for the four transition properties just described.</li>
+            <li>You can also have multiple transitions by separating them with a comma</li>
+        </ul>
+        <div class="chunk">
+            <p class="code">.ad-ad2 h1 span { <br>
+                transition: transform 0.2s ease-out 50ms;<br>
+            }</p>
+        </div>
+        <h4>Animations</h4>
+        <div class="chunk">
+            <p class="code">@-webkit-keyframes myAnimation { <br>
+                /* put animation keyframes here */<br>
+            }<br>
+            @keyframes myAnimation { <br>
+                /* put animation keyframes here */<br>
+            }</p>
+        </div>
+        <ul>
+            <li></li>
+        </ul>
         <h3 id="hch12">HTML5 and CSS3 for the Real World Ch 12: Canvas, SVG, Drag and Drop</h3>
  
     </main>
