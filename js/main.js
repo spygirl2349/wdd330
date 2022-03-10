@@ -93,6 +93,10 @@ const chapters = [
         url: "week4/notes4.html#ch8"
     },
     {
+        label: "Chapter 9: The Window Object",
+        url: "week9/notes9.html#ch9"
+    },
+    {
         label: "Chapter 10: Testing and Debugging",
         url: "week5/notes5.html"
     },
@@ -107,6 +111,10 @@ const chapters = [
     {
         label: "Chapter 13: AJAX",
         url: "week7/notes7.html#ch13"
+    },
+    {
+        label: "Chapter 14: HTML5 APIs",
+        url: "week9/notes9.html#ch14"
     },
     {
         label: "Chapter 15: Modern Javascript",
