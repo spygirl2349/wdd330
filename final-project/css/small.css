@@ -68,8 +68,8 @@ nav ul li button:hover {
 }
 
 /*----------- MAIN --------------*/
-main div {
-    font-family: "Lato", sans-serif;
+main {
+    padding: 10px;
 }
 
 canvas {

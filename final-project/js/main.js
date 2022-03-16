@@ -1,10 +1,16 @@
 import {Rect, Circle} from './shapes.js';
 
+let canvas = document.querySelector("canvas");
+let c = canvas.getContext('2d');
 //VARIABLES
 let type = "Rectangle"
 let x = undefined;
 let y = undefined;
 let color = "black"
+
+//testing variables
+let ex = undefined;
+let why = undefined;
 
 //BUTTON EVENT LISTENERS
 let btns = document.querySelectorAll("button");
@@ -26,7 +32,6 @@ form.addEventListener('submit', (event) => {
 
 //EVENT LISTENERS
 //for the computers
-let canvas = document.querySelector("canvas");
 //sets the starting point for the shape
 canvas.addEventListener("pointerdown", (e)=> {
     x = e.offsetX;
@@ -36,14 +41,32 @@ canvas.addEventListener("pointerdown", (e)=> {
 canvas.addEventListener("pointerup", followMouse)
 
 //for touch screen devices
-canvas.addEventListener("touchstart", (e)=> {
-    console.log(e)
-    x = e.touches[0].clientX;
-    y = e.touches[0].screenY - e.touches[0].clientY;
-    console.log(`x: ${x}, y: ${y}`);
-});
-//sets the ending point and creates the shape
-canvas.addEventListener("touchend", followMouse);
+// canvas.addEventListener("touchstart", (e)=> {
+//     console.log(e)
+//     x = e.touches[0].clientX;
+//     y = e.touches[0].screenY - e.touches[0].clientY;
+//     console.log(`x: ${x}, y: ${y}`);
+// });
+// //sets the ending point and creates the shape
+// canvas.addEventListener("touchend", followMouse);
+canvas.addEventListener("touchstart", (e) => {
+    console.log("touch started");
+    ex = e.touches[0].clientX;
+    why = e.touches[0].screenY - e.touches[0].clientY;
+})
+canvas.addEventListener("touchmove", (e)=> {
+    // console.log(e.touches[0])
+
+    console.log(c.clearRect(0, 0, innerWidth, innerHeight));
+
+    let wi = Math.abs(ex - e.touches[0].clientX);
+    let hi = Math.abs(why - (e.touches[0].screenY - e.touches[0].clientY));
+    
+    // c.clearRect(ex, why, wi, hi);
+    
+    let rect2 = new Rect(ex, why, wi, hi, color);
+    rect2.draw()
+})
 
 //Create the shape
 function followMouse (e) {
