@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="contents"></input>
+    <button onclick="read()">give me content</button>
+    <input type="text" id="two"></input>
+    <button onclick="add()">Add the numbers</button>
+    <div id="panda"></div>
+
+
+
+    <script>
+        let content = null;
+        let two = null;
+
+        const refresh = function () {
+            content = parseInt(document.querySelector("#contents").value);
+            two = parseInt(document.querySelector("#two").value); 
+        }
+
+        function read() {
+            refresh()
+            console.log (content);
+            let result = sum(content);
+            document.querySelector("#panda").innerHTML = result; 
+        }
+        const sum = num => {
+            let count = 0;
+            let i = num;
+            while (i > 0) {
+                count += i;
+                i--;
+            }
+            return count
+        }
+        const add = function () { 
+            refresh()
+            let adding = content + two
+            document.querySelector("#panda").innerHTML = adding; 
+        }
+        
+        
+    </script>
+</body>
+</html>

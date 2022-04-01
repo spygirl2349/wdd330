@@ -1,0 +1,36 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  justify-content: center;
+}
+
+.container div {
+  border: 1px solid black;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}
+
+.container div:nth-child(1),
+.container div:nth-child(3),
+.container div:nth-child(7),
+.container div:nth-child(5),
+.container div:nth-child(9) {
+  border: inherit;
+}
+
+.container div:nth-child(2) {
+  border-top: inherit;
+}
+
+.container div:nth-child(4) {
+  border-left: inherit;
+}
+
+.container div:nth-child(6) {
+  border-right: inherit;
+}
+
+.container div:nth-child(8) {
+  border-bottom: inherit;
+}

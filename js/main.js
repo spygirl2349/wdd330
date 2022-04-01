@@ -38,6 +38,10 @@ const links = [
     {
         label: "Week 10 Notes",
         url: "week10/notes10.html"
+    },
+    {
+        label: "Final Project",
+        url: "final-project/index.html"
     }
 ]
 
@@ -46,7 +50,6 @@ let ol = document.getElementById("content-links");
 
 
 for (let i=0; i < links.length; i++) {
-    console.log(links)
     let li = document.createElement("li");
     let a = document.createElement("a");
 
@@ -139,7 +142,6 @@ let ul = document.getElementById("chapter-links");
 
 
 for (let i=0; i < chapters.length; i++) {
-    console.log(chapters)
     let li = document.createElement("li");
     let a = document.createElement("a");
 

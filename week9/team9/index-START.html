@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Drum Kit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="keys">
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">clap</span>
+      </div>
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
+        <span class="sound">hihat</span>
+      </div>
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">kick</span>
+      </div>
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">openhat</span>
+      </div>
+      <div data-key="71" class="key">
+        <kbd>G</kbd>
+        <span class="sound">boom</span>
+      </div>
+      <div data-key="72" class="key">
+        <kbd>H</kbd>
+        <span class="sound">ride</span>
+      </div>
+      <div data-key="74" class="key">
+        <kbd>J</kbd>
+        <span class="sound">snare</span>
+      </div>
+      <div data-key="75" class="key">
+        <kbd>K</kbd>
+        <span class="sound">tom</span>
+      </div>
+      <div data-key="76" class="key">
+        <kbd>L</kbd>
+        <span class="sound">tink</span>
+      </div>
+    </div>
+
+    <audio data-key="65" src="sounds/clap.wav"></audio>
+    <audio data-key="83" src="sounds/hihat.wav"></audio>
+    <audio data-key="68" src="sounds/kick.wav"></audio>
+    <audio data-key="70" src="sounds/openhat.wav"></audio>
+    <audio data-key="71" src="sounds/boom.wav"></audio>
+    <audio data-key="72" src="sounds/ride.wav"></audio>
+    <audio data-key="74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" src="sounds/tom.wav"></audio>
+    <audio data-key="76" src="sounds/tink.wav"></audio>
+
+     <script>
+      // document.addEventListener("keydown", function (event) {
+      //   switch (event.key) {
+      //     case "a":
+      //       const keyA = document.querySelector("audio:nth-of-type(1)");
+      //       keyA.load();
+      //       keyA.play();
+      //       const divA = document.querySelector(".key:nth-of-type(1)");
+      //       divA.classList.add("playing")
+      //       window.setTimeout(() => divA.classList.remove("playing"), 0);
+      //       divA.style.marginTop = `$1rem + 10px`;
+      //       break;
+      //     case "s":
+      //       const keyUp = document.querySelector("audio:nth-of-type(2)");
+      //       keyUp.load();
+      //       keyUp.play();
+      //       const s = document.querySelector(".key:nth-of-type(2)");
+      //       s.classList.add("playing")
+      //       window.setTimeout(() => s.classList.remove("playing"), 20)
+      //       break;
+      //     case "d":
+      //       const d = document.querySelector("audio:nth-of-type(3)");
+      //       d.load();
+      //       d.play();
+      //       const dd = document.querySelector(".key:nth-of-type(3)");
+      //       dd.classList.add("playing")
+      //       window.setTimeout(() => dd.classList.remove("playing"), 20)
+      //       break;
+      //     case "f":
+      //       const f = document.querySelector("audio:nth-of-type(4)");
+      //       f.load();
+      //       f.play();
+      //       const ff = document.querySelector(".key:nth-of-type(4)");
+      //       ff.classList.add("playing")
+      //       window.setTimeout(() => ff.classList.remove("playing"), 20)
+      //       break;
+      //     case "g":
+      //       const g = document.querySelector("audio:nth-of-type(5)");
+      //       g.load();
+      //       g.play();
+      //       const gg = document.querySelector(".key:nth-of-type(5)");
+      //       gg.classList.add("playing")
+      //       window.setTimeout(() => gg.classList.remove("playing"), 20)
+      //       break;
+      //     case "h":
+      //       const h = document.querySelector("audio:nth-of-type(6)");
+      //       h.load();
+      //       h.play();
+      //       const hh = document.querySelector(".key:nth-of-type(6)");
+      //       hh.classList.add("playing")
+      //       window.setTimeout(() => hh.classList.remove("playing"), 20)
+      //       break;
+      //     case "j":
+      //       const i = document.querySelector("audio:nth-of-type(7)");
+      //       i.load();
+      //       i.play();
+      //       const jj = document.querySelector(".key:nth-of-type(7)");
+      //       jj.classList.add("playing")
+      //       window.setTimeout(() => jj.classList.remove("playing"), 20)
+      //       break;
+      //     case "k":
+      //       const j = document.querySelector("audio:nth-of-type(8)");
+      //       j.load();
+      //       j.play();
+      //       const kk = document.querySelector(".key:nth-of-type(8)");
+      //       kk.classList.add("playing")
+      //       window.setTimeout(() => kk.classList.remove("playing"), 20)
+      //       break;
+      //     case "l":
+      //       const k = document.querySelector("audio:nth-of-type(9)");
+      //       k.load();
+      //       k.play();
+      //       const ll = document.querySelector(".key:nth-of-type(9)");
+      //       ll.classList.add("playing")
+      //       window.setTimeout(() => ll.classList.remove("playing"), 20)
+      //       break;
+      //   }
+      // })
+      
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+  function playSound(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+        if (!audio) return;
+        key.classList.add("playing");
+        //adding height movement
+        let height = 0;
+        if (key.dataset.height) {
+          height = parseInt(key.dataset.height);
+        }
+        if (height != 10) {
+          height += 1;
+        } else {
+          height = 0;
+        }
+        key.dataset.height = height;
+        let topMarg = 16 + 10 * height;
+        key.style.marginTop = `${topMarg}px`;
+        audio.currentTime = 0;
+        audio.play();
+      }
+
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
+      
+    </script>
+  </body>
+</html>
