@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,4 +39,44 @@
     }
     };
 </script>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript switch</h2>
+
+<p id="demo"></p>
+
+<script>
+let list = ["rect", "circle", "square", "triangle", "Wednesday", "tacos", "pancakes"];
+let type = list[Math.floor(list.length * Math.random())]
+let day;
+switch (type) {
+  case "rect":
+    day = "Sunday";
+    break;
+  case "circle":
+    day = "Monday";
+    break;
+  case "square":
+    day = "Tuesday";
+    break;
+  case "triangle":
+    day = "Wednesday";
+    break;
+  case "Wednesday":
+    day = "Thursday";
+    break;
+  case "tacos":
+    day = "Friday";
+    break;
+  case  "pancakes":
+    day = "Saturday";
+}
+document.getElementById("demo").innerHTML = "Today is " + day;
+</script>
+
+</body>
 </html>

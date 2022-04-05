@@ -75,6 +75,8 @@ function getFormInfo(id) {
     })
 }
 
+
+
 export {
     disable,
     getHero,

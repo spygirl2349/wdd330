@@ -119,7 +119,7 @@ class Line {
         this.draw = function () {
             c.beginPath();
 
-            c.lineWidth = 10;
+            c.lineWidth = 5;
             c.strokeStyle = this.color;
 
             c.moveTo(this.x, this.y);
@@ -147,10 +147,54 @@ class Text {
         }
     }
 }
+
+class Create {
+    constructor(d) {
+        this.e = d["e"];
+        this.type = d["type"];
+        this.color = d["mainColor"]
+
+        this.x = d["x"];
+        this.y = d["y"];
+        this.x2 = d["x2"];
+        this.y2 = d["y2"];
+        this.w = Math.abs(this.x - this.x2);
+        this.h = Math.abs(this.y - this.y2);
+        this.radius = this.w / 2
+
+        //tri
+        // this.xa = this.x;
+        // this.ya = e.offsetY;
+        // this.xb = e.offsetY;
+        // this.yb = e.offsetY;
+
+        //text
+        this.fontSize = d["fontSize"];
+        this.font = d["font"];
+
+        this.draw = function () {
+            // console.log(`x: ${this.x2}, y: ${this.y2} CREATE`)
+            switch (this.type) {
+                case "Rectangle":
+                    let rect1 = new Rect(this.x, this.y, this.w, this.h, this.color);
+                    rect1.draw();
+                    break;
+                case "Circle":
+                    let cir1 = new Circle(this.x + this.radius, this.y + this.radius, 4, 4, this.radius, this.color);
+                    cir1.draw();
+                    break;
+                case "Line":
+                    let line1 = new Line(this.x, this.y, this.x2, this.y2, this.color);
+                    line1.draw()
+                    break;
+                case "Text":
+                    let text = prompt("What would you like it to say?");
+                    let txt = new Text(text, this.x, this.y, this.fontSize, this.font, this.color);
+                    txt.draw();
+            }
+        }
+    }
+}
 export {
-    Rect,
-    Circle,
-    Tri,
-    Line,
-    Text
+    Create
 }
