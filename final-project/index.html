@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <h1>Logo Goes here</h1>
+        <h1>Draw 101</h1>
         <nav>
             <ul>
                 <li><button id="rectB">Rectangle</button></li>
@@ -21,6 +21,20 @@
                 <li><button>Triangle</button></li>
                 <li><button>Text</button></li>
             </ul>
+            <div id="Text-div" class="toggle" style="display: none;">
+                <form action="index.html" id="set-text">
+               <!-- set font
+                    set font size
+                    set text color -->
+                    <select name="font">
+                        <option value="serif">Serif</option>
+                        <option value="sans-serif">Sans Serif</option>
+                    </select>
+                    <input type="color" name="color">
+                    <input type="number" value="30" name="font-size">
+                    <input type="submit" value="Save">
+                </form>
+            </div>
         </nav>
     </header>
     <main>
@@ -28,7 +42,7 @@
             <input type="color" name="color" id="new-color">
             <input type="submit" value="Set Color">
         </form>
-        <p>Instructions and basic color picker goes here</p>
+        <p>Welcome to Draw 101! Try drawing: <span id="super-hero"></span></p>
     </main>
         <canvas></canvas>
     <script src="js/main.js" type="module"></script>

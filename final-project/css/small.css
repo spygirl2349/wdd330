@@ -2,6 +2,8 @@
 body {
     background-color: #757083;
     margin: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
 header,
@@ -23,6 +25,24 @@ h3 {
 
 p {
     font-family: 'Noto Sans', sans-serif;
+}
+
+.toggle {
+    display: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    max-width: 200px;
+    position: fixed;  
+}
+
+#Text-div {
+    right: 20px;
+    top: 70px;
+}
+
+#Circle-div {
+    right: 200px;
 }
 
 
@@ -88,3 +108,11 @@ footer {
     color: white;
     padding: 10px;
 }
+/* 
+@media (min-width: 37.5em) {
+    #Circle-div {
+        right: 0;
+        left: 100px;
+    }
+
+} */
