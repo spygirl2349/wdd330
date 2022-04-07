@@ -1,14 +1,3 @@
-function disable() {
-    // To get the scroll position of current webpage
-    let TopScroll = window.pageYOffset || document.documentElement.scrollTop;
-    let LeftScroll = window.pageXOffset || document.documentElement.scrollLeft;
-
-    // if scroll happens, set it to the previous value
-    window.onscroll = function () {
-        window.scrollTo(LeftScroll, TopScroll);
-    };
-}
-
 function getHero(url) {
     //uses fetch to pull json data of super heroes and displays it to the user
     fetch(url)
@@ -78,7 +67,6 @@ function getFormInfo(id) {
 
 
 export {
-    disable,
     getHero,
     hideDiv,
     makeHiddendiv,
